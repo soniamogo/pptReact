@@ -1,0 +1,14 @@
+#tablero{
+    background-color: rgb(136, 151, 166);
+    width: 100 vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#jugadas{
+    display: flex;
+    justify-content: center;
+}
+
