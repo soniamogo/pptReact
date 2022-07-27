@@ -1,0 +1,19 @@
+#jugador{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+#opcion{
+    width: 100px;
+    text-align: center;
+}
