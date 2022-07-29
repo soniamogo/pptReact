@@ -14,7 +14,9 @@ export default class Ppt extends Component {
 
   handleNext = (jugador) =>{
     if(jugador === 1){
+      console.log(this.state.seleccion1)
       var indice = this.opciones.indexOf(this.state.seleccion1)
+      console.log(indice)
       if(indice === 2) indice=0;
       else indice++
       this.setState({seleccion1:this.opciones[indice]})
@@ -30,6 +32,7 @@ export default class Ppt extends Component {
   handlePrev = (jugador) =>{
     if(jugador === 1){
       var indice = this.opciones.indexOf(this.state.seleccion1)
+      console.log(indice)
       if(indice === 0) indice=2;
       else indice--
       this.setState({seleccion1:this.opciones[indice]})

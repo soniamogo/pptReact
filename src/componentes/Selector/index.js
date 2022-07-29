@@ -11,9 +11,9 @@ const Selector = ({handleNext, handlePrev}) => {
     <div id='jugador'>
       <img src={Piedra}/>
       <div id="botones">
-        <Boton content='<' handlePrev={handlePrev}/>
+        <Boton content='<' handlePrev={handlePrev} jugador='1'/>
         <div id='opcion'>Prueba</div>
-        <Boton content='>' handleNext={handleNext}/>
+        <Boton content='>' handleNext={handleNext} jugador='1'/>
       </div>
     </div>
     
