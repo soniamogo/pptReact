@@ -6,14 +6,14 @@ import Boton from '../Boton'
 import './style.css'
 
 
-const Selector = ({handleNext, handlePrev}) => {
+const Selector = ({handleNext, handlePrev, jugador, seleccion}) => {
   return (
     <div id='jugador'>
       <img src={Piedra}/>
       <div id="botones">
-        <Boton content='<' handlePrev={handlePrev} jugador='1'/>
-        <div id='opcion'>Prueba</div>
-        <Boton content='>' handleNext={handleNext} jugador='1'/>
+        <Boton content='<' handlePrev={handlePrev} jugador={jugador}/>
+        <div id='opcion'>{seleccion}</div>
+        <Boton content='>' handleNext={handleNext} jugador={jugador}/>
       </div>
     </div>
     

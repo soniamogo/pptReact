@@ -1,10 +1,11 @@
 import React from 'react'
 import './style.css'
 
-const Boton = ({content, handleNext, handlePrev, jugador}) => {
+const Boton = ({content, handleNext, handlePrev, jugador, jugada}) => {
   const handleClick = () =>{
-    if(content==='>' && jugador ==='1') handleNext(1)
-    if (content==='<'&& jugador === '1') handlePrev(1)
+    if(content==='>') handleNext(jugador)
+    if(content==='<') handlePrev(jugador)
+    if(content==='Jugar') jugada()
   } 
   return (
     <div id='boton' onClick={handleClick}>{content}</div>
