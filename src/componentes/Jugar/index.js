@@ -5,7 +5,7 @@ import './style.css'
 const Jugar = ({jugada}) => {
   return (
     <div id='jugar'>
-        <Boton jugada={jugada} content='Jugar'/>
+        <Boton handleClick={jugada} content='Jugar'/>
     </div>
   )
 }

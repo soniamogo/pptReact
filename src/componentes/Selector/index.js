@@ -6,14 +6,16 @@ import Boton from '../Boton'
 import './style.css'
 
 
+
 const Selector = ({handleNext, handlePrev, jugador, seleccion}) => {
+
   return (
     <div id='jugador'>
       <img src={Piedra}/>
       <div id="botones">
-        <Boton content='<' handlePrev={handlePrev} jugador={jugador}/>
-        <div id='opcion'>{seleccion}</div>
-        <Boton content='>' handleNext={handleNext} jugador={jugador}/>
+        <Boton content='<' handleclick={handlePrev} jugador={jugador}/>
+        <div id='opcion' onChange={seleccion}></div>
+        <Boton content='>' handleClick={handleNext} jugador={jugador}/>
       </div>
     </div>
     
