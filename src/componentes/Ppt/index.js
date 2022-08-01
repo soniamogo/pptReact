@@ -15,21 +15,15 @@ export default class Ppt extends Component {
 
   handleNext = (jugador) =>{
     if(jugador === 1){
-      console.log(this.state.seleccion1)
       var indice = this.opciones.indexOf(this.state.seleccion1)
-      console.log(indice)
       if(indice === 2) indice=0;
       else indice++
       this.setState({seleccion1:this.opciones[indice]})
-      console.log(this.state.seleccion1)
     }else{
-      console.log(this.state.seleccion2)
       var indice = this.opciones.indexOf(this.state.seleccion2)
-      console.log(indice)
       if(indice === 2) indice=0;
       else indice++
       this.setState({seleccion2:this.opciones[indice]})
-      console.log(this.state.seleccion2)
     }
   }
 
@@ -41,16 +35,17 @@ export default class Ppt extends Component {
       if(indice === 0) indice=2;
       else indice--
       this.setState({seleccion1:this.opciones[indice]})
-      console.log(this.state.seleccion1)
-    }else{
+    }
+    else{
       console.log(this.state.seleccion2)
       var indice = this.opciones.indexOf(this.state.seleccion2)
       console.log(indice)
       if(indice === 0) indice=2;
       else indice--
       this.setState({seleccion2:this.opciones[indice]})
-      console.log(this.state.seleccion2)
+      
     }
+    
   }
 
   jugada = () =>{
@@ -73,9 +68,9 @@ export default class Ppt extends Component {
     return (
       <div id='tablero'>
         <div id='jugadas'>
-            <Selector handleNext={this.handleNext} handlePrev={this.handlePrev} jugador='1' seleccion={this.state.seleccion1}/>
+            <Selector handleNext={this.handleNext} handlePrev={this.handlePrev} jugador={1} seleccion={this.state.seleccion1}/>
             <Jugar jugada={this.jugada}/>
-            <Selector handleNext={this.handleNext} handlePrev={this.handlePrev} jugador='2' seleccion={this.state.seleccion2}/>
+            <Selector handleNext={this.handleNext} handlePrev={this.handlePrev} jugador={2} seleccion={this.state.seleccion2}/>
         </div>
       </div>
     )
