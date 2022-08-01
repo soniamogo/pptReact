@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './style.css'
 import Selector from '../Selector'
 import Jugar from '../Jugar'
+import Modal from '../Modal'
 
 export default class Ppt extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ export default class Ppt extends Component {
     this.opciones = ['piedra', 'papel', 'tijera']
     this.state = {
        seleccion1: 'piedra',
-       seleccion2: 'papel'
+       seleccion2: 'papel',
+       ganador: ''
     }
   }
 
@@ -61,12 +63,13 @@ export default class Ppt extends Component {
               }else{
                 ganador = 'Empate'
               }
-              console.log(ganador)
+              this.setState({ganador})
   }
 
   render() {
     return (
       <div id='tablero'>
+        <Modal ganador={this.state.ganador}/>
         <div id='jugadas'>
             <Selector handleNext={this.handleNext} handlePrev={this.handlePrev} jugador={1} seleccion={this.state.seleccion1}/>
             <Jugar jugada={this.jugada}/>
