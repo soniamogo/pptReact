@@ -14,3 +14,8 @@
     justify-content: space-around;
 }
 
+@media screen and (max-width: 760px) {
+    #jugadas{
+      flex-direction: column;
+    }
+}

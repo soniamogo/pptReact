@@ -4,7 +4,7 @@ import './style.css'
 const Boton = ({content, handleClick}) => {
   
   return (
-    <div id='boton' onClick={handleClick}>{content}</div>
+    <div id={content!=='Jugar' ? 'pequeño' : null} className='boton' onClick={handleClick}>{content}</div>
   )
 }
 
