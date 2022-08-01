@@ -1,0 +1,32 @@
+#modal{
+    position:absolute;
+    height:100vh;
+    width:100vw;
+    background-color: rgba(0,0,0,0.9);
+    color:white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    flex-direction: column;
+}
+
+#reset{
+    width:200px;
+    height:50px;
+    background-color: lightblue;
+    color:darkblue;
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:50px;
+    transition:all 0.5s ease;
+    cursor:pointer;
+}
+
+#reset:hover{
+    background-color: white;
+    width: 220px;
+    height:60px;
+}

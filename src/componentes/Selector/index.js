@@ -7,16 +7,26 @@ import './style.css'
 
 
 
-const Selector = ({handleNext, handlePrev, jugador, seleccion}) => {
+const Selector = ({handleNext, handlePrev, jugador, seleccion, ganadas}) => {
+  const nextOption = () =>{
+    handleNext(jugador);
+  }
+
+  const prevOption = () =>{
+    handlePrev(jugador);
+  }
 
   return (
-    <div id='jugador'>
-      <img src={Piedra}/>
+    <div id='jugador'>  
+      {seleccion==='piedra' && <img src={Piedra}/>}
+      {seleccion==='papel' && <img src={Papel}/>}
+      {seleccion==='tijera' && <img src={Tijera}/>}
       <div id="botones">
-        <Boton content='<' handleclick={handlePrev} jugador={jugador}/>
-        <div id='opcion' onChange={seleccion}></div>
-        <Boton content='>' handleClick={handleNext} jugador={jugador}/>
+        <Boton content='<' handleClick={prevOption} />
+        <div id='opcion'>{seleccion}</div>
+        <Boton content='>' handleClick={nextOption} />
       </div>
+      <div>{ganadas}</div>
     </div>
     
    
