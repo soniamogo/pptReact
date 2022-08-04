@@ -7,7 +7,7 @@ import './style.css'
 
 
 
-const Selector = ({handleNext, handlePrev, jugador, seleccion}) => {
+const Selector = ({handleNext, handlePrev, jugador, seleccion, ganadas}) => {
   let nextOption = () =>{
     handleNext(jugador)
   }
@@ -18,14 +18,15 @@ const Selector = ({handleNext, handlePrev, jugador, seleccion}) => {
 
   return (
     <div id='jugador'>
-      {seleccion === 'piedra' && <img src={Piedra}/>}
-      {seleccion === 'papel' && <img src={Papel}/>}
-      {seleccion === 'tijera' && <img src={Tijera}/>}
+      {seleccion === 'Piedra' && <img src={Piedra}/>}
+      {seleccion === 'Papel' && <img src={Papel}/>}
+      {seleccion === 'Tijera' && <img src={Tijera}/>}
       <div id="botones">
         <Boton content='<' handleClick={prevOption}/>
         <div id='opcion'> {seleccion}</div>
         <Boton content='>' handleClick={nextOption}/>
       </div>
+      <div id='ganadas'>{ganadas}</div>
     </div>
     
    

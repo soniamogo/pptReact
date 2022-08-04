@@ -1,13 +1,15 @@
 import React from 'react'
 import './style.css'
 
-const Modal = ({ganador}) => {
+const Modal = ({ganador, handleReset}) => {
     if (ganador!==''){
         return (
             <div id="modal">
-                {ganador!='empate' && 'El ganador es '}
-                {ganador==='empate' && 'Empate'}            
+                {ganador!='Empate' && `El ganador es ${ganador}`}
+                {ganador==='Empate' && 'Empate'}   
+                <div id='reset' onClick={handleReset}> Reset </div>         
             </div>
+            
         )
     }else {
         return null

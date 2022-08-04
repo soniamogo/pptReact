@@ -9,8 +9,15 @@
     
 }
 
+
 #jugadas{
     display: flex;
     justify-content: space-around;
 }
 
+@media (max-width : 700px){
+    #jugadas{
+        justify-content: center;
+
+    }
+}

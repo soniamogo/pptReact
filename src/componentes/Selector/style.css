@@ -17,3 +17,27 @@
     width: 100px;
     text-align: center;
 }
+
+img{
+    width: 400px;
+}
+
+#ganadas{
+    flex-direction: column;
+}
+
+@media (max-width : 900px){
+    img{
+        max-width: 200px;
+    }
+}
+
+@media (max-width : 700px){
+    img{
+        max-width: 100px;
+    }
+    #botones{
+        flex-direction: column;
+        margin: 20px;
+    }
+}

@@ -7,10 +7,12 @@ import Modal from '../Modal'
 export default class Ppt extends Component {
   constructor(props) {
     super(props)
-    this.opciones = ['piedra', 'papel', 'tijera']
+    this.opciones = ['Piedra', 'Papel', 'Tijera']
     this.state = {
-       seleccion1: 'piedra',
-       seleccion2: 'papel',
+       seleccion1: 'Piedra',
+       seleccion2: 'Papel',
+       ganadas1:0,
+       ganadas2:0,
        ganador: ''
     }
   }
@@ -52,28 +54,36 @@ export default class Ppt extends Component {
 
   jugada = () =>{
     var ganador = ''
-    if(this.state.seleccion1 === 'tijera' && this.state.seleccion2 === 'papel' ||
-       this.state.seleccion1 === 'piedra' && this.state.seleccion2 === 'tijera' ||
-       this.state.seleccion1 === 'papel' && this.state.seleccion2 === 'piedra'){
+    var {ganadas1, ganadas2} = this.state
+    if(this.state.seleccion1 === 'Tijera' && this.state.seleccion2 === 'Papel' ||
+       this.state.seleccion1 === 'Piedra' && this.state.seleccion2 === 'Tijera' ||
+       this.state.seleccion1 === 'Papel' && this.state.seleccion2 === 'Piedra'){
         ganador = 'Jugador 1';
-    }else if (this.state.seleccion2 === 'tijera' && this.state.seleccion1 === 'papel' ||
-              this.state.seleccion2 === 'piedra' && this.state.seleccion1 === 'tijera' ||
-              this.state.seleccion2 === 'papel' && this.state.seleccion1 === 'piedra'){
+        ganadas1++
+    }else if (this.state.seleccion2 === 'Tijera' && this.state.seleccion1 === 'Papel' ||
+              this.state.seleccion2 === 'Piedra' && this.state.seleccion1 === 'Tijera' ||
+              this.state.seleccion2 === 'Papel' && this.state.seleccion1 === 'Piedra'){
                 ganador = 'Jugador 2';
+                ganadas2++
               }else{
                 ganador = 'Empate'
               }
-              this.setState({ganador})
+              this.setState({ganador, ganadas1, ganadas2})
+  }
+  handleReset = () =>{
+    this.setState({seleccion1:'Piedra', seleccion2:'Papel', ganador:''})
   }
 
   render() {
     return (
       <div id='tablero'>
-        <Modal ganador={this.state.ganador}/>
+        <Modal ganador={this.state.ganador} handleReset={this.handleReset}/>
         <div id='jugadas'>
-            <Selector handleNext={this.handleNext} handlePrev={this.handlePrev} jugador={1} seleccion={this.state.seleccion1}/>
-            <Jugar jugada={this.jugada}/>
-            <Selector handleNext={this.handleNext} handlePrev={this.handlePrev} jugador={2} seleccion={this.state.seleccion2}/>
+            <Selector handleNext={this.handleNext} handlePrev={this.handlePrev} jugador={1} seleccion={this.state.seleccion1} ganadas={this.state.ganadas1}/>
+            <div id="jugar">
+              <Jugar jugada={this.jugada} />
+            </div>
+            <Selector handleNext={this.handleNext} handlePrev={this.handlePrev} jugador={2} seleccion={this.state.seleccion2} ganadas={this.state.ganadas2}/>
         </div>
       </div>
     )
